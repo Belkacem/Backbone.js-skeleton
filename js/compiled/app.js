@@ -53,10 +53,10 @@
     valids = 0;
     for (_j = 0, _len = contexts.length; _j < _len; _j++) {
       context = contexts[_j];
-      if (!(context || Handlebars.Utils.isEmpty(context))) {
-        invalids++;
-      } else {
+      if (context || Handlebars.Utils.isEmpty(context) === false) {
         valids++;
+      } else {
+        invalids++;
       }
     }
     if (valids) {
@@ -66,7 +66,7 @@
     }
   });
   Handlebars.registerHelper("ternaryIf", function(context, r_true, r_false) {
-    if (context && (Handlebars.Utils.isEmpty(context) === false)) {
+    if (context && Handlebars.Utils.isEmpty(context) === false) {
       return r_true;
     } else {
       return r_false;

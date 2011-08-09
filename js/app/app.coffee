@@ -50,22 +50,16 @@ Handlebars.registerHelper 'ifany', (contexts..., options) ->
   invalids = 0
   valids = 0
   for context in contexts
-    unless context or Handlebars.Utils.isEmpty context
-      invalids++
-    else
-      valids++
+    if context or Handlebars.Utils.isEmpty(context) is false then valids++ else invalids++
   if valids then options.fn @ else options.inverse @
 
 # if context is truthy, return first input value, else return secondary input
-# {{#ternaryIf context "true" "false" }} -->
+# {{ternaryIf context "true" "false" }} -->
 # context = 1 - would yield "true" being output in the template
 Handlebars.registerHelper "ternaryIf", (context, r_true, r_false) ->
-  if context and (Handlebars.Utils.isEmpty(context) is false)
-    return r_true
-  else
-    r_false
+  if context and Handlebars.Utils.isEmpty(context) is false then return r_true else r_false
 
-# {{#inlineIf context "check if context is equal to me" "if so, output me"}}
+# {{inlineIf context "check if context is equal to me" "if so, output me"}}
 Handlebars.registerHelper "inlineIf", (context, check, return_me) ->
   if context is check then return_me
 
