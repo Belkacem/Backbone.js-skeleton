@@ -1,0 +1,12 @@
+[submodule "lib/backbone"]
+	path = lib/backbone
+	url = https://github.com/documentcloud/backbone.git
+[submodule "lib/underscore"]
+	path = lib/underscore
+	url = https://github.com/documentcloud/underscore.git
+[submodule "lib/handlebars"]
+	path = lib/handlebars
+	url = https://github.com/wycats/handlebars.js.git
+[submodule "lib/zepto"]
+	path = lib/zepto
+	url = https://github.com/madrobby/zepto.git
