@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>backbone skeleton app</title>
+  <style>
+    html { font: 15px/22px sans-serif; color: #282828; }
+  </style>
+</head>
+
+<body>
+  <h1>Backbone Skeleton App:</h1>
+  <div id="albums"></div>
+</body>
+
+<!-- Handlebars dummy template, showing data from data.json (Spotify json dump) -->
+<script type="text/x-handlebars-template" id="template">
+  <p>{{ album.artist }} — <strong>{{ album.name }}</strong> ({{ album.released }})</p>
+</script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script>window.$ || document.write('<script src="js/libs/jquery.min.js"><\/script>')</script>
+
+<script src="js/libs/underscore-min.js"></script>
+<script src="js/libs/backbone.js"></script>
+<script src="js/libs/handlebars.js"></script>
+
+<script src="js/compiled/app.js"></script>
+<script src="js/compiled/views.js"></script>
+<script src="js/compiled/models.js"></script>
+
+<script>
+  // Initialize the app
+  $(function(){ APP.init() })
+</script>
+</html>
