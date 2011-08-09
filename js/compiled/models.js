@@ -2,7 +2,7 @@
   "use strict";  var collection, collections, models;
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
   APP.init = function() {
-    return APP.instances.app = new collections.app;
+    return new collections.app;
   };
   models = {};
   collections = {};
