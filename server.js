@@ -1,3 +1,5 @@
+// git://gist.github.com/701407.git
+
 var http = require("http"),
     url = require("url"),
     path = require("path"),
