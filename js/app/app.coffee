@@ -62,5 +62,3 @@ Handlebars.registerHelper "ternaryIf", (context, r_true, r_false) ->
 # {{inlineIf context "check if context is equal to me" "if so, output me"}}
 Handlebars.registerHelper "inlineIf", (context, check, return_me) ->
   if context is check then return_me
-
-

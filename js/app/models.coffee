@@ -1,7 +1,7 @@
 "use strict"
 
-APP.init = ->
-  APP.instances.app = new collections.app
+# Create a new collection on init()
+APP.init = -> new collections.app
 
 models = {}
 collections = {}
