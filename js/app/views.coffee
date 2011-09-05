@@ -2,12 +2,15 @@
 
 templates =
   # Compile a handlebars template
-  app : Handlebars.compile $("#template").html()
+  # Should work seamlessly with any template lang that returns a function
+  # which in turn expects a object to be passed on invoc.
+  # e.g. _.template $("#app_template").html()
+  app : Handlebars.compile $("#app_template").html()
 
 ##################################
 
 # Boilerplate view
-view = Backbone.View.extend
+class view extends Backbone.View
   # - Bind model events onto the view, then render
   # - When the model changes, re-render
   # - When destroy is called in the corresponding model, remove view
@@ -26,12 +29,14 @@ view = Backbone.View.extend
   # - Runs @set_content if exists, nice if you want to inherit from the base view but bind some other stuff on the el. 
   render : ->
     $(@el).html @template @model.toJSON()
+    # called after render, e.g. bind plugins to @el
+    # in jQuery, $(@el).find("#id").plugin_name ->
     @set_content() if @set_content
     @
   # Called when destroy is called on the model
   remove : ->
     $(@el).remove()
-  # Like here:
+  # Destroy model and clear view:
   clear : ->
     @model.destroy()
 
@@ -39,8 +44,9 @@ view = Backbone.View.extend
 ##################################
 
 # Inherits from "view"
-# Eg. override render : -> if the view doesn't have a model set
-# Make accessible to models through the global "APP"
-APP.views.view = view.extend
-  # the model is rendered with this template
+# e.g. override render : -> if the view doesn't have a model set
+# Make accessible to models through the global "APP" namespace
+class APP.views.app extends view
+  # the render func expects a template function to be set,
+  # and passes in a obj to be rendered
   template : templates.app

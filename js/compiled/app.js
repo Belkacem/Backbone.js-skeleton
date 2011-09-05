@@ -1,5 +1,6 @@
 (function() {
-  "use strict";  var module, _ref;
+  "use strict";
+  var module, _ref;
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; }, __slice = Array.prototype.slice;
   module = __bind(function(name) {
     return name = this.name = {};
@@ -10,13 +11,11 @@
     models: {},
     instances: {}
   };
-    if ((_ref = window.console) != null) {
-    _ref;
-  } else {
+  if ((_ref = window.console) == null) {
     window.console = {
       log: function() {}
     };
-  };
+  }
   Handlebars.registerHelper("debug", function() {
     var input, inputs, options, _i, _j, _len, _results;
     inputs = 2 <= arguments.length ? __slice.call(arguments, 0, _i = arguments.length - 1) : (_i = 0, []), options = arguments[_i++];
