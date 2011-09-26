@@ -29,9 +29,6 @@
     };
     view.prototype.render = function() {
       $(this.el).html(this.template(this.model.toJSON()));
-      if (this.set_content) {
-        this.set_content();
-      }
       return this;
     };
     view.prototype.remove = function() {
@@ -48,6 +45,9 @@
       app.__super__.constructor.apply(this, arguments);
     }
     app.prototype.template = templates.app;
+    app.prototype.render = function() {
+      return app.__super__.render.call(this);
+    };
     return app;
   })();
 }).call(this);

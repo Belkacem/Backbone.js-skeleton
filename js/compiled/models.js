@@ -20,9 +20,6 @@
       collection.__super__.constructor.apply(this, arguments);
     }
     collection.prototype.initialize = function(models, options) {
-      if (this.init) {
-        this.init(models, options);
-      }
       return this.bind("reset", function(collection, options) {
         var container, model, _i, _len, _ref;
         container = document.createDocumentFragment();
@@ -31,7 +28,7 @@
           model = _ref[_i];
           container.appendChild(this.render(model));
         }
-        this.el.html(container);
+        document.getElementById(this.el).appendChild(container);
         if (this.post_render) {
           return this.post_render(collection, options);
         }
@@ -59,9 +56,10 @@
     }
     app.prototype.model = models.app;
     app.prototype.url = "data.json";
-    app.prototype.el = $("#albums");
+    app.prototype.el = "albums";
     app.prototype.view = "app";
-    app.prototype.init = function() {
+    app.prototype.initialize = function(models, options) {
+      app.__super__.initialize.call(this);
       return this.fetch();
     };
     return app;
