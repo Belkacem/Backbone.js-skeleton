@@ -14,8 +14,6 @@ collections = {}
 # When complete inserts it in one DOW draw, in @el
 class collection extends Backbone.Collection
   initialize : (models, options) ->
-    # localized collection initialize, e.g. fetch data
-    @init models, options if @init
     # collection is reset on fetch, or manually
     @bind "reset", (collection, options) ->
       # build the dom:
@@ -23,7 +21,7 @@ class collection extends Backbone.Collection
       for model in collection.models
         container.appendChild @render model
       # inject rendered view into @el
-      @el.html container
+      document.getElementById(@el).appendChild container
       # if defined, call this func to do stuff after reset
       @post_render collection, options if @post_render
   # collection render func
@@ -45,8 +43,10 @@ class collections.app extends collection
   # Collection url, fetch, save etc
   url : "data.json"
   # Element to render the collection in
-  el : $ "#albums"
+  el : "albums"
   # view to render
   view : "app"
-  init : ->
+  initialize : (models, options) ->
+    super()
+    
     @fetch()

@@ -29,9 +29,6 @@ class view extends Backbone.View
   # - Runs @set_content if exists, nice if you want to inherit from the base view but bind some other stuff on the el. 
   render : ->
     $(@el).html @template @model.toJSON()
-    # called after render, e.g. bind plugins to @el
-    # in jQuery, $(@el).find("#id").plugin_name ->
-    @set_content() if @set_content
     @
   # Called when destroy is called on the model
   remove : ->
@@ -50,3 +47,8 @@ class APP.views.app extends view
   # the render func expects a template function to be set,
   # and passes in a obj to be rendered
   template : templates.app
+  render : ->
+    # call render function set in parent
+    super()
+    
+    # do stuff after render:
