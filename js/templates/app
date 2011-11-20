@@ -1,0 +1,1 @@
+<p>{{ album.artist }} — <strong>{{ album.name }}</strong> ({{ album.released }})</p>
