@@ -1,0 +1,23 @@
+{
+  "name": "backplate.js",
+  "version": "0.1.0",
+  "description": "Backbone, Underscore, Zepto, Handlebars",
+  "homepage": "http://harrison.github.com/Backbone.js-skeleton/",
+  "keywords": "backbone, underscore, zepto, handlebars, boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Harrison/Backbone.js-skeleton.git"
+  },
+  "engines": {
+    "node": ">= 0.6.0"
+  },
+  "dependencies": {
+      "coffee-script": ">= 1.1.3",
+      "handlebars": ">= 1.0.2beta",
+      "mime": ">= 1.2.4",
+      "uglify-js": ">= 1.1.1"
+  },
+  "bin": {
+    "backplate": "bin/backplate"
+  }
+}
