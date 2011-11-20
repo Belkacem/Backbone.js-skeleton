@@ -25,15 +25,15 @@
       var elem;
       elem = document.getElementById(this.el);
       this.bind("reset", function(collection, options) {
-        var container, model, _i, _len, _ref;
-        container = document.createDocumentFragment();
-        _ref = collection.models;
+        var frag, model, _i, _len, _ref;
+        frag = document.createDocumentFragment();
+        _ref = this.models;
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           model = _ref[_i];
-          container.appendChild(this.render(model));
+          frag.appendChild(this.render(model));
         }
-        elem.appendChild(container);
-        if (this.post_render) return this.post_render(collection, options);
+        elem.appendChild(frag);
+        if (this.post_render) return this.post_render(this, options);
       });
       return this.bind("add", function(model, options) {
         return elem.appendChild(this.render(model));
@@ -42,8 +42,7 @@
 
     collection.prototype.render = function(model) {
       return (new APP.views[this.view]({
-        model: model,
-        collection: this
+        model: model
       })).el;
     };
 
