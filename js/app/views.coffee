@@ -1,13 +1,7 @@
 "use strict"
 
 templates =
-  # Compile a handlebars template
-  # Should work seamlessly with any template lang that returns a function
-  # which in turn expects a object to be passed on invoc.
-  # e.g. _.template $("#app_template").html()
-  app : Handlebars.compile $("#app_template").html()
-
-##################################
+  app : Handlebars.templates.app
 
 # Boilerplate view
 class view extends Backbone.View
@@ -37,9 +31,6 @@ class view extends Backbone.View
   clear : ->
     @model.destroy()
 
-##################################
-##################################
-
 # Inherits from "view"
 # e.g. override render : -> if the view doesn't have a model set
 # Make accessible to models through the global "APP" namespace
@@ -52,3 +43,4 @@ class APP.views.app extends view
     super()
     
     # do stuff after render:
+    

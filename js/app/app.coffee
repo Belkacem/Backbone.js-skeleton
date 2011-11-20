@@ -1,17 +1,10 @@
 "use strict"
 
-# Global object creator
-module = (name) => name = @name = {}
-# Create global APP variable
-module 'APP'
-
-# Stuff some object holders on it
-@APP =
+window.APP =
   views     : {}
   models    : {}
   instances : {}
 
-##################################
 # HELPERS : 
 
 # mute console.log crap in ie etc
