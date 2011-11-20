@@ -1,0 +1,4 @@
+#!/usr/bin/env coffee
+
+require "./helpers.coffee"
+require "./compiler.coffee"
