@@ -28,3 +28,6 @@ Static node.js file-server<br>
     bin/backplate -s -p 8888 --- compilers with sever and optional port
 
 Be sure to run <code>npm install</code> first, to fetch the dependencies.
+
+##### License
+© MIT
